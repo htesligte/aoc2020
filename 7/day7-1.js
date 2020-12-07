@@ -9,8 +9,7 @@ const getParentColors = (color) => {
         if (line.indexOf(color) === -1 || line.indexOf("no other") !== -1) {
             continue;
         }
-        const parentColorArr = line.substring(0, line.indexOf(" bags contain")).split(" ");
-        const parentColor = parentColorArr[parentColorArr.length -1];
+        const parentColor = line.substring(0, line.indexOf(" bags contain"));
         if (!uniqueParents.includes(parentColor)) {
             uniqueParents.push(parentColor);
             getParentColors(parentColor, lines);
@@ -18,4 +17,4 @@ const getParentColors = (color) => {
     }
 }
 getParentColors("shiny gold");
-console.log(uniqueParents, uniqueParents.length);
+console.log(uniqueParents.length-1);
